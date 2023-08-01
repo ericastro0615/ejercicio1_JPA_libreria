@@ -1,0 +1,14 @@
+yt\ejercicio1_jpa_libreria\entidades\Autor_.class
+yt\ejercicio1_jpa_libreria\entidades\Editorial_.class
+yt\ejercicio1_jpa_libreria\entidades\Editorial.class
+yt\ejercicio1_jpa_libreria\entidades\Autor.class
+yt\ejercicio1_jpa_libreria\entidades\Libro_.class
+yt\ejercicio1_jpa_libreria\servicios\LibroServicio.class
+yt\ejercicio1_jpa_libreria\persistence\Repositorio.class
+yt\ejercicio1_jpa_libreria\Ejercicio1_JPA_libreria.class
+yt\ejercicio1_jpa_libreria\entidades\Libro.class
+yt\ejercicio1_jpa_libreria\persistence\EditorialRepositorio.class
+yt\ejercicio1_jpa_libreria\persistence\LibroRepositorio.class
+yt\ejercicio1_jpa_libreria\persistence\AutorRepositorio.class
+yt\ejercicio1_jpa_libreria\servicios\EditorialServicio.class
+yt\ejercicio1_jpa_libreria\servicios\AutorServicio.class
