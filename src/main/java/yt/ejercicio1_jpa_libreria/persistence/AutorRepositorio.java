@@ -23,14 +23,21 @@ public class AutorRepositorio extends Repositorio<Autor>{
     public void editar(Autor object) {
         super.editar(object);  
     }
+     
+ 
+    public List<Autor> buscarPorNombre (String nombre) {
+        conectar();
+        List solicitud= em.createQuery("SELECT a FROM Autor a WHERE a.nombre=:nombre").setParameter("nombre", nombre).getResultList();
+        desconectar();
+        return solicitud;
+    }
     
-    
-// 
-//    public List<Autor> buscarPorNombre (String nombre) {
-//        String solicitud ="SELECT a FROM Autor a WHERE a.nombre=:nombre";
-//        return em.createQuery(solicitud, Autor.class).
-//                setParameter("nombre", nombre).getResultList();
-//    }
+    public Autor buscarAutorPorId(Integer id) {
+        Autor autor = em.find(Autor.class, id);
+        return autor;
+    }
+
+
     
 
 }

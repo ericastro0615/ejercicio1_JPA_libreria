@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+ 
 package yt.ejercicio1_jpa_libreria.persistence;
 
 import java.util.List;
@@ -21,17 +18,33 @@ public class LibroRepositorio extends Repositorio<Libro >{
     public void crear(Libro object) {
         super.crear(object); 
     }
-
-   
+ 
     public void editar(Libro object) {
         super.editar(object);  
     }
-    
-    
+     
  
 //    public List<Libro> buscarPorNombre (String nombre) {
 //        String solicitud ="SELECT l FROM Libro l WHERE e.nombre=:nombre";
 //        return em.createQuery(solicitud, Libro.class).
 //                setParameter("nombre", nombre).getResultList();
 //    }
+
+    public Libro buscarLibroPorIsbn(Integer isbn) {
+         Libro libro = em.find(Libro.class, isbn);
+        return libro; 
+    }
+    
+    public List <Libro> buscarLibroPorAutor (String nombreAutor) {
+        conectar();
+//        return (List<Libro>) em.createQuery("SELECT l FROM Libro l WHERE l.isbn = (SELECT a.id FROM Autor a WHERE a.nombre=:nombre)") .setParameter ("nombre", nombreAutor).getResultList();
+/// ES NEECSARIO CONECTAR Y DESCONECTAR LA BASE, POR ESO SE RETORNA CON VARIABLE
+     List<Libro> libros=  em.createQuery("SELECT l FROM Libro l WHERE l.autor.id = (SELECT a.id FROM Autor a WHERE a.nombre=:nombre)")
+                .setParameter ("nombre", nombreAutor)
+                .getResultList();
+        desconectar();
+        return libros;
+    }
+    
+    
 }

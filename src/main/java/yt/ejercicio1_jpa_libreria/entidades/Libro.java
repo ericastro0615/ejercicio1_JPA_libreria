@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 public class Libro implements Serializable {
     // SIRVEN LOS GENERATED VALUE????? VER IMPORTACION
    @Id
-  private long isbn;
+  private Long isbn;
   private String titulo;
   private Integer anio;
   private Integer ejemplares;
@@ -29,7 +29,7 @@ public class Libro implements Serializable {
     public Libro() {
     }
 
-    public Libro(long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
+    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.anio = anio;
@@ -41,11 +41,11 @@ public class Libro implements Serializable {
         this.editorial = editorial;
     }
 
-    public long getIsbn() {
+    public Long getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(long isbn) {
+    public void setIsbn(Long isbn) {
         this.isbn = isbn;
     }
     

@@ -49,7 +49,6 @@ public abstract class Repositorio<T> {
             em.getTransaction().begin();
             em.persist(object);
             em.getTransaction().commit();
-            System.out.println("Creadp exitosamente");
         } catch (Exception e) {
             System.out.println("Error al crear la base de datos");
             if (em.getTransaction().isActive()) {

@@ -26,10 +26,15 @@ public class EditorialRepositorio extends Repositorio<Editorial>{
     
     
  
-    public List<Editorial> buscarPorNombre (String nombre) {
-        String solicitud ="SELECT e FROM Autor a WHERE e.nombre=:nombre";
-        return em.createQuery(solicitud, Editorial.class).
-                setParameter("nombre", nombre).getResultList();
+//    public List<Editorial> buscarPorNombre (String nombre) {
+//        String solicitud ="SELECT e FROM Editorial WHERE e.nombre=:nombre";
+//        return em.createQuery(solicitud, Editorial.class).
+//                setParameter("nombre", nombre).getResultList();
+//    }
+
+    public Editorial buscarEditorialPorId(Integer id) {
+            Editorial editorial = em.find(Editorial.class, id);
+        return editorial; 
     }
     
 
