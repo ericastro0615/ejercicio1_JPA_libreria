@@ -22,13 +22,17 @@ public class LibroRepositorio extends Repositorio<Libro >{
     public void editar(Libro object) {
         super.editar(object);  
     }
+    
+    
+    public List<Libro> buscarLibroPorTitulo(String titulo) {
+        conectar();
+        List<Libro> libros = em.createQuery("SELECT l FROM Libro l WHERE l.titulo =:titulo").setParameter("titulo", titulo)
+                .getResultList();
+        desconectar();
+        return libros;
+    }
      
  
-//    public List<Libro> buscarPorNombre (String nombre) {
-//        String solicitud ="SELECT l FROM Libro l WHERE e.nombre=:nombre";
-//        return em.createQuery(solicitud, Libro.class).
-//                setParameter("nombre", nombre).getResultList();
-//    }
 
     public Libro buscarLibroPorIsbn(Integer isbn) {
          Libro libro = em.find(Libro.class, isbn);
@@ -42,6 +46,14 @@ public class LibroRepositorio extends Repositorio<Libro >{
      List<Libro> libros=  em.createQuery("SELECT l FROM Libro l WHERE l.autor.id = (SELECT a.id FROM Autor a WHERE a.nombre=:nombre)")
                 .setParameter ("nombre", nombreAutor)
                 .getResultList();
+        desconectar();
+        return libros;
+    }
+    
+    //////  no LOGRA MOSTRAR RESULTADOS IDENTICOS, SOLO SINGULARES Y NO REPETIDOs
+    public List<Libro> buscarLibroPorEditorial(String nombre) {
+        conectar();
+        List<Libro> libros = em.createQuery("SELECT l FROM Libro l WHERE l.editorial.id = (SELECT e.id FROM Editorial e WHERE e.nombre=:nombre)").setParameter("nombre", nombre).getResultList();
         desconectar();
         return libros;
     }
